@@ -2,9 +2,10 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         ans = []
         def func(val):
-            if sum(val)>target:
+            sum_val = sum(val)
+            if sum_val>target:
                 return
-            elif sum(val)==target:
+            elif sum_val==target:
                 tmp = sorted(val[:])
                 if tmp not in ans: ans.append(tmp)
                 return
