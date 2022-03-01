@@ -1,21 +1,20 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         ans = []
-        def func(val):
-            sum_val = sum(val)
-            if sum_val>target:
+        def func(su, st, val):
+            if su>target:
                 return
-            elif sum_val==target:
+            elif su==target:
                 tmp = sorted(val[:])
                 if tmp not in ans: ans.append(tmp)
                 return
             else:
-                for i in candidates:
-                    val.append(i)
-                    func(val)
+                for i in range(st, len(candidates)):
+                    val.append(candidates[i])
+                    func(su+candidates[i], i, val)
                     val.pop()
             return
         
-        func([])
+        func(0, 0, [])
         
         return ans
