@@ -13,20 +13,12 @@ class Solution:
         
         ans = []
         
-        if len(digits)>=1:
-            for i in let[digits[0]]:
-                if len(digits)>=2:
-                    for j in let[digits[1]]:
-                        if len(digits)>=3:
-                            for l in let[digits[2]]:
-                                if len(digits)>=4:
-                                    for m in let[digits[3]]:
-                                        ans.append(i+j+l+m)
-                                else:
-                                    ans.append(i+j+l)
-                        else:
-                            ans.append(i+j)
-                else:
-                    ans.append(i)
-            
+        def func(ind,s):
+            for i in let[digits[ind]]:
+                if len(s)+1<len(digits): func(ind+1,s+i)
+                elif len(s)+1==len(digits): 
+                    ans.append(s+i) 
+            return
+        if len(digits)==0: return ans
+        func(0,"")
         return ans
