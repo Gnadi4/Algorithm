@@ -1,13 +1,12 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        ans = [[]]
+        ans = []
         
         def func(ind, s):
+            ans.append(s)
+            
             for i in range(ind, len(nums)):
-                s.append(nums[i])
-                ans.append(s.copy())
-                func(i+1, s)
-                s.pop()
+                func(i+1, s + [nums[i]])
             return
         
         func(0, [])
