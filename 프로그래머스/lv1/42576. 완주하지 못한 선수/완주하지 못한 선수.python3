@@ -1,0 +1,17 @@
+from collections import defaultdict
+
+def solution(participant, completion):
+    answer = ''
+    
+    dict_val = defaultdict(int)
+    
+    for i in completion:
+        dict_val[i] += 1
+        
+    for i in participant:
+        if dict_val[i] <= 0:
+            answer = i
+        else:
+            dict_val[i] -= 1
+    
+    return answer
