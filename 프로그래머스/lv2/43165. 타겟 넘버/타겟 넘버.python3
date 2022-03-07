@@ -1,0 +1,18 @@
+def solution(numbers, target):
+    answer = 0
+    
+    def func(st, tar):
+        ans = 0
+        if st == len(numbers):
+            if target == tar:
+                return 1
+            return 0
+        
+        ans += func(st+1, tar+numbers[st])
+        ans += func(st+1, tar-numbers[st])
+        
+        return ans
+    
+    answer += func(0, 0)
+    
+    return answer
