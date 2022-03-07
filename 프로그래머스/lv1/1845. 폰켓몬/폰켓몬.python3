@@ -1,0 +1,13 @@
+def solution(nums):
+    answer = 0
+    l = len(nums)
+    l = l//2
+    
+    nums_tmp = list(set(nums))
+    
+    if len(nums_tmp) <= l:
+        answer = len(nums_tmp)
+    else:
+        answer = l
+    
+    return answer
