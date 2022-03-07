@@ -2,13 +2,10 @@ import sys
 input = sys.stdin.readline
 
 n,m = map(int,input().split())
-list_m = [[0]*m for _ in range(n)]
+list_m = []
 
 for i in range(n):
-    a = input()
-    for j in range(m):
-        if a[j] == "1":
-            list_m[i][j] = 1
+    list_m.append(list(map(int,list(input().rstrip()))))
 
 ans = 0
 q = [[0,0,1]]
