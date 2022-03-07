@@ -1,0 +1,27 @@
+from collections import defaultdict
+
+def solution(n, computers):
+    answer = 0
+    
+    dict_val = defaultdict(list)
+    
+    for i in range(len(computers)):
+        for j in range(len(computers[i])):
+            if i!=j and computers[i][j]==1:
+                dict_val[i].append(j)
+            else:
+                dict_val[i]
+    
+    def func(st, visited):
+        for i in dict_val[st]:
+            if i not in visited:
+                visited += func(i, visited+[i])
+        return visited
+    
+    visited = []
+    for i in dict_val:
+        if i not in visited:
+            answer+=1
+            visited += func(i, visited)
+    
+    return answer
