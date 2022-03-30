@@ -12,5 +12,6 @@ ans = 0
 for i in list_n:
     ans += (k//i)
     k%=i
+    if k==0: break
 
 print(ans)
