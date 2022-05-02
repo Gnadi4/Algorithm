@@ -1,0 +1,16 @@
+def solution(s):
+    answer = ''
+    v_list = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    v_first = [k[0] for k in v_list]
+    i = 0
+    while i < len(s):
+        if s[i] in v_first:
+            for j in range(10):
+                if s[i:i+len(v_list[j])] == v_list[j]:
+                    answer+=str(j)
+                    i += len(v_list[j])
+                    break  
+        else:
+            answer += s[i]
+            i += 1
+    return int(answer)
