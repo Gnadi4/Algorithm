@@ -2,8 +2,11 @@ import sys
 
 input = sys.stdin.readline
 
-while True:
-    a, b = map(int, input().rstrip().split())
-    if a == 0 and b == 0:
+while(True):
+    n, m = map(int, input().rstrip().split())
+    if n == 0 and m == 0:
         break
-    print('Yes' if a > b else 'No')
+    if n > m:
+        print("Yes")
+    else:
+        print("No")
