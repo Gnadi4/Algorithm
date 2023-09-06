@@ -2,6 +2,6 @@ import sys
 
 input = sys.stdin.readline
 
-a, b = map(int, input().rstrip().split())
+n, m = map(int, input().rstrip().split())
 
-print(abs(a-b))
+print(abs(n - m))
